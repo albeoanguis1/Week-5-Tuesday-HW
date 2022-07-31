@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content %}
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.name }}
+            {{ form.submit }}
+
+        </form>
+
+        {% if pokemon %}
+        <div class="card mx-auto rounded border-danger" style="width: 18rem;">
+            <img src="{{ pokemon.PictureID }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ pokemon.Name }}</h5>
+              <p class="card-text">
+                  <b>Ability: {{ pokemon.Ability }}</b>
+                  <ul>
+                      <li>HP: {{ pokemon.HP }}</li>
+                      <li>Attack: {{ pokemon.Attack }}</li>
+                      <li>Defense: {{ pokemon.Defense }}</li>
+                  </ul>
+              </p>
+            </div>
+          </div>
+        {% endif %}
+{% endblock %}
